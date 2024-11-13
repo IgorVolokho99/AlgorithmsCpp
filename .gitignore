@@ -1,0 +1,69 @@
+# Общие игнорируемые файлы
+*.o            # Объектные файлы
+*.obj          # Object files (Windows)
+*.so           # Shared libraries
+*.dll          # DLL файлы
+*.dylib        # MacOS dynamic libraries
+*.exe          # Выполняемые файлы (Windows)
+*.out          # Выполняемые файлы (Linux/Unix)
+*.a            # Статические библиотеки
+*.lib          # Статические библиотеки (Windows)
+*.pch          # Предкомпилированные заголовки
+
+# Файлы сборки
+/build/
+/bin/
+/lib/
+/dist/
+/CMakeFiles/
+/CMakeCache.txt
+*.cmake
+Makefile
+Makefile.in
+*.ninja
+*.sln
+*.vcxproj*
+*.vcproj*
+*.log
+
+# IDE и редакторы
+.idea/          # JetBrains CLion и другие
+.vscode/        # Visual Studio Code
+.DS_Store       # MacOS метаданные
+*.swp           # Vim swap files
+*.suo           # Visual Studio solution options
+*.user          # Visual Studio user options
+*.directory     # KDE файловый менеджер
+*.ipch          # Visual Studio precompiled headers
+*.tlog          # Visual Studio логирование
+*.pdb           # Visual Studio debug files
+
+# Сгенерированные файлы
+*.gch           # Предкомпилированные заголовки GCC
+*.d             # Сгенерированные зависимости компилятора
+
+# Лог-файлы и временные файлы
+*.log           # Лог-файлы
+*.tmp           # Временные файлы
+*.temp          # Временные файлы
+*.bak           # Бэкапы
+*.old           # Старые файлы
+
+# Тесты и отладочные артефакты
+*.gcno          # Coverage info
+*.gcda          # Coverage data
+*.gcov          # Coverage reports
+
+# Python, если используется для скриптов
+__pycache__/
+*.pyc
+*.pyo
+
+# Сторонние библиотеки и зависимости
+/third_party/
+/vendor/
+*.a
+*.lib
+
+# Системные файлы
+Thumbs.db       # Windows
