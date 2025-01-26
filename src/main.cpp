@@ -4,9 +4,9 @@
 
 int main() {
     
-    Node node = Node(1);
+    OneLinkedList<int> oll;
 
-    std::cout << node.value << std::endl;
+    std::cout << oll.is_empty() << std::endl;
 
     return 0;
 }
