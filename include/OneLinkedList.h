@@ -30,7 +30,18 @@ public:
         if (is_empty()) {
             head = tail = new_node;
         } else {
-            new_node->next = head;
+            new_node->next = tail;
+            tail = new_node;
+        }
+    }
+
+    void push_front(T data) {
+        Node<T>* new_node = new Node(data);
+
+        if (is_empty()) {
+            head = tail = new_node;
+        } else {
+            head.next = new_node;
             head = new_node;
         }
     }
