@@ -12,6 +12,7 @@ public:
     ~Node() {};
 };
 
+
 template <typename T>
 class OneLinkedList {
 public:
@@ -23,6 +24,16 @@ public:
     bool is_empty() {
         return head == nullptr;
     };
+
+    void push_back(T data) {
+        Node<T>* new_node = new Node(data);
+        if (is_empty()) {
+            head = tail = new_node;
+        } else {
+            new_node->next = head;
+            head = new_node;
+        }
+    }
 };
 
 #endif
