@@ -64,6 +64,26 @@ public:
         delete temp;
         return value;
     }
+
+    T pop_back() {
+        if (is_empty()) 
+            throw std::out_of_range("List is empty, cannot pop");
+        if (head == tail) {
+            T value = head->value;
+            head = tail = nullptr;
+            return value;
+        }
+
+        Node<T>* current_node = head;
+        while (current_node->next != tail)
+            current_node = current_node->next;
+
+        T value = tail->value;
+        delete tail;
+        tail = current_node;
+        return value;
+    }
+
 };
 
 #endif
