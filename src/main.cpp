@@ -14,9 +14,10 @@ int main() {
 
 
     std::cout << oll.is_empty() << std::endl;
+    std::cout << oll.pop_front() <<std::endl;
+    std::cout << "Hello" << std::endl;
 
     std::cout << oll.head->value << std::endl;
-    std::cout << oll.tail->value << std::endl;
 
 
     return 0;
