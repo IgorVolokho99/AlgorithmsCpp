@@ -84,6 +84,11 @@ public:
         return value;
     }
 
+    void clear() {
+        while (head != nullptr)
+            pop_back();
+    }
+
 };
 
 #endif

@@ -12,14 +12,9 @@ int main() {
     oll.push_back(3);
 
 
-    std::cout << oll.pop_front() <<std::endl;
-    std::cout << oll.pop_back() <<std::endl;
-
-
-    std::cout << oll.head->value << std::endl;
-    std::cout << oll.tail->value << std::endl;
-    std::cout << oll.pop_back() <<std::endl;
-
+    std::cout << oll.is_empty() << std::endl;
+    oll.clear();
+    std::cout << oll.is_empty() << std::endl;
 
     return 0;
 }
