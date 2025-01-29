@@ -89,6 +89,17 @@ public:
             pop_back();
     }
 
+    int size() {
+        Node<T>* current_node = head;
+        int counter = 0;
+        while (current_node != nullptr) {
+            ++counter;
+            current_node = current_node->next;
+        }
+
+        return counter;
+    }
+
 };
 
 #endif

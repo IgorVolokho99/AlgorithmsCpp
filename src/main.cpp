@@ -12,9 +12,7 @@ int main() {
     oll.push_back(3);
 
 
-    std::cout << oll.is_empty() << std::endl;
-    oll.clear();
-    std::cout << oll.is_empty() << std::endl;
+    std::cout << oll.size() << std::endl;
 
     return 0;
 }
