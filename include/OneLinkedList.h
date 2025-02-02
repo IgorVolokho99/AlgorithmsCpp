@@ -2,6 +2,7 @@
 #define ONELINKEDLIST_H
 
 #include <stdexcept>
+#include <iostream>
 
 template <typename T>
 class Node {
@@ -44,7 +45,7 @@ public:
         if (is_empty()) {
             head = tail = new_node;
         } else {
-            head.next = new_node;
+            head->next = new_node;
             head = new_node;
         }
     }
@@ -96,9 +97,40 @@ public:
             ++counter;
             current_node = current_node->next;
         }
-
         return counter;
     }
+
+    // Если пустой - рейзим индексеррор.
+    // Если индекс ноль - вызываем пуш фронт.
+    // Иначе цикл вайл до
+
+    void insert(int index, T data) {
+        if (is_empty()) {
+            throw std::out_of_range("List is empty, cannot insert");
+            return;
+        }
+        else if (index == 0) {
+            push_front(data);
+            return;
+        }
+        
+        Node<T>* current_node = head;
+        int current_index = 0;
+        while (current_node->next != nullptr && current_index != index - 1) {
+            current_node = current_node->next;
+            ++current_index;
+        }
+
+        if (current_index != index - 1) {
+            throw std::out_of_range("List is empty, cannot insert");
+        } else {
+            Node<T>* new_node = new Node(data);
+            new_node->next = current_node->next;
+            current_node->next = new_node;
+        }
+    }
+
+    
 
 };
 
