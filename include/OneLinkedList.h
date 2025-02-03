@@ -130,6 +130,34 @@ public:
         }
     }
 
+    // Если is_empty, то бросаем исключение
+    // Если head->value == data, то pop_front + return
+    // Иначе вайлом ищим.
+
+
+    void remove(T data) {
+        if (is_empty()) return;
+        if (head->value == data) {
+            pop_front();
+            return;
+        }
+
+        Node<T>* current_node = head;
+
+        while (current_node->next != nullptr && current_node->next->value != data)
+            current_node = current_node->next;
+
+        if (current_node->next == nullptr) throw std::runtime_error("Value not found in the list.");
+        if (current_node->next == tail) {
+            pop_back();
+            return;
+        }
+        Node<T>* deleted_node = current_node->next;
+        current_node->next = current_node->next->next;
+
+        delete deleted_node;
+    }
+
     
 
 };
