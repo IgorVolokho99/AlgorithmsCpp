@@ -158,8 +158,20 @@ public:
         delete deleted_node;
     }
 
-    
+    int find(T data) {
+        if (is_empty()) return -1;
 
+        Node<T>* current_node = head;
+        int index = 0;
+        while (current_node->value != data && current_node != tail) {
+            current_node = current_node->next;
+            ++index;
+        } 
+        if (current_node->value != data) return -1;
+
+        return index;
+    }
+    
 };
 
 #endif
