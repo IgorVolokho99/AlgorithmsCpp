@@ -171,6 +171,24 @@ public:
 
         return index;
     }
+
+    T get(int index) {
+        if (is_empty()) 
+            throw std::out_of_range("List is empty, indexerror.");
+        // if (index < 0)
+        //     throw std::runtime_error("")
+
+        int current_index = 0;
+        Node<T>* current_node = head;
+        while (current_index < index && current_node != nullptr) {
+            current_node = current_node->next;
+            ++current_index;
+        }
+
+        if (current_node == nullptr || current_index != index) throw std::runtime_error("IndexError.");
+
+        return current_node->value;
+    }
     
 };
 
