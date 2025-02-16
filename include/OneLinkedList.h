@@ -189,6 +189,18 @@ public:
 
         return current_node->value;
     }
+
+    void set(int index, T value) {
+        if (index >= size()) throw std::out_of_range("List index out of range.");
+
+        int current_index = 0;
+        Node<T>* current_node = head;
+        while (current_index != index) {
+            current_node = current_node->next;
+            ++current_index;
+        }
+        current_node->value = value;
+    }
     
 };
 
