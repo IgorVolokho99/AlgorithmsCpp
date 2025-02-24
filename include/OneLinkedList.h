@@ -201,6 +201,21 @@ public:
         }
         current_node->value = value;
     }
+
+    void reverse() {
+        Node<T>* prev = nullptr;
+        Node<T>* current_node = this->head;
+        this->tail = this->head;
+
+        while (current_node != nullptr) {
+            Node<T>* next_node = current_node->next;
+            current_node->next = prev;
+            prev = current_node;
+            current_node = next_node;
+        }
+
+        this->head = prev;
+    }
     
 };
 
