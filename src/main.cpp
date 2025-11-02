@@ -7,8 +7,9 @@
 int main() {
     
     BinNode b(1);
+    BinaryTree<int> bb;
 
-    std::cout << "Hello World" << std::endl;
+    std::cout << bb.is_empty() << std::endl;
 
     return 0;
 }

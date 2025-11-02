@@ -13,9 +13,19 @@ private:
 };
 
 
-// template <typename T>
-// class BinaryTree {
-// };
+template <typename T>
+class BinaryTree {
+    public:
+    BinaryTree() {};
+
+    bool is_empty() {
+        return head == nullptr ? true : false;
+    }
+
+private:
+    BinNode<T>* head = nullptr;
+};
+
 
 #endif
 
