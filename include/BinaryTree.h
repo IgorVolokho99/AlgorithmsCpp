@@ -37,6 +37,10 @@ class BinaryTree {
         }
     }
 
+    BinNode<T>* root () {
+        return head;
+    }
+
 private:
     BinNode<T>* head = nullptr;
     int size = 0;
