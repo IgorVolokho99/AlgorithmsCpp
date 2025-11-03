@@ -10,6 +10,7 @@ int main() {
     BinaryTree<int> bb;
 
     std::cout << bb.is_empty() << std::endl;
+    std::cout << bb.get_size() << std::endl;
 
     return 0;
 }

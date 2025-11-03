@@ -22,8 +22,11 @@ class BinaryTree {
         return head == nullptr ? true : false;
     }
 
+    int get_size() { return size; }
+
 private:
     BinNode<T>* head = nullptr;
+    int size = 0;
 };
 
 
