@@ -6,7 +6,7 @@ class BinNode {
 public:
     BinNode(const T& value) : value(value), left(nullptr), right(nullptr) {};
 
-private:
+public:
     T value;
     BinNode* left;
     BinNode* right;
@@ -23,6 +23,19 @@ class BinaryTree {
     }
 
     int get_size() { return size; }
+
+    void clear(BinNode<T>* node = nullptr) {
+        if (size == 0) return;
+
+        if (node == nullptr) {
+            this->clear(head);
+        } else {
+            if (node->left != nullptr) this->clear(node->left);
+            if (node->right !=nullptr) this->clear(node->right);
+            delete this;
+            size -= 1;
+        }
+    }
 
 private:
     BinNode<T>* head = nullptr;
