@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <queue>
+#include <cmath>
 
 template <typename T>
 class BinNode {
@@ -135,6 +136,10 @@ class BinaryTree {
             if (node->right)
                 q.push(node->right);
         }
+    }
+
+    int height() {
+        return std::log2(size);
     }
     
 
