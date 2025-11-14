@@ -12,7 +12,7 @@ int main() {
     bb.insert(1);
     bb.insert(2);
     bb.insert(3);
-    bb.preorder();
+    bb.inorder();
 
 
     return 0;

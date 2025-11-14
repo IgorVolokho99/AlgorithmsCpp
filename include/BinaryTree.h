@@ -76,22 +76,30 @@ class BinaryTree {
         }
     }
     
-
-    void preorder(BinNode<T>* node = nullptr) {
-        if (is_empty()) return;
-
-        if (node == nullptr) {
-            node = root();
-        }
-
-        std::cout << node->value << std::endl;
-        if (node->left != nullptr)
-            preorder(node->left);
-        
-        if (node->right != nullptr)
-            preorder(node->right);
+    void preorder() {
+        preorder_impl(head);
     }
 
+    void preorder_impl(BinNode<T>* node) {
+        if (node == nullptr) return;
+
+        std::cout << node->value << std::endl;
+
+        preorder_impl(node->left);
+        preorder_impl(node->right);
+    }
+
+    void inorder() {
+        inorder_impl(head);
+    }
+
+    void inorder_impl(BinNode<T>* node) {
+        if (node == nullptr) return;
+
+        inorder_impl(node->left);
+        std::cout << node->value << std::endl;
+        inorder_impl(node->right);
+    }
 
     ~BinaryTree() {
         clear();
