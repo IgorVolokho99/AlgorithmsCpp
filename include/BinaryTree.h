@@ -10,8 +10,8 @@ public:
 
 public:
     T value;
-    BinNode* left;
-    BinNode* right;
+    BinNode<T>* left;
+    BinNode<T>* right;
 };
 
 
@@ -21,22 +21,25 @@ class BinaryTree {
     BinaryTree() {};
 
     bool is_empty() {
-        return head == nullptr ? true : false;
+        return head == nullptr;
     }
 
     int get_size() { return size; }
 
     void clear(BinNode<T>* node = nullptr) {
-        if (size == 0) return;
+        if (head == nullptr) return;
 
         if (node == nullptr) {
-            this->clear(head);
-        } else {
-            if (node->left != nullptr) this->clear(node->left);
-            if (node->right !=nullptr) this->clear(node->right);
-            delete this;
-            size -= 1;
+            clear(head);
+            head = nullptr;
+            size = 0;
+            return;
         }
+
+        if (node->left) clear(node->left);
+        if (node->right) clear(node->right);
+
+        delete node;
     }
 
     BinNode<T>* root () {
@@ -57,24 +60,41 @@ class BinaryTree {
 
             if (node->left == nullptr) {
                 node->left = new BinNode<T>(value);
+                ++size;
+                return;
+            } else {
+                queue.push_back(node->left);
+            }
 
-                if (node->left == nullptr) {
-                    node->left = new BinNode<T>(value);
-                    ++size;
-                    return;
-                } else {
-                    queue.push_back(node->left);
-                }
-
-                if (node->right == nullptr) {
-                    node->right = new BinNode<T>(value);
-                    ++size;
-                    return;
-                } else {
-                    queue.push_back(node->right);
-                }
+            if (node->right == nullptr) {
+                node->right = new BinNode<T>(value);
+                ++size;
+                return;
+            } else {
+                queue.push_back(node->right);
             }
         }
+    }
+    
+
+    void preorder(BinNode<T>* node = nullptr) {
+        if (is_empty()) return;
+
+        if (node == nullptr) {
+            node = root();
+        }
+
+        std::cout << node->value << std::endl;
+        if (node->left != nullptr)
+            preorder(node->left);
+        
+        if (node->right != nullptr)
+            preorder(node->right);
+    }
+
+
+    ~BinaryTree() {
+        clear();
     }
 
 private:

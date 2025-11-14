@@ -8,14 +8,11 @@ int main() {
     
     BinNode b(1);
     BinaryTree<int> bb;
-    std::cout << bb.is_empty() << std::endl;
-    std::cout << bb.get_size() << std::endl;
     bb.insert(5);
-    std::cout << bb.is_empty() << std::endl;
-    std::cout << bb.get_size() << std::endl;
-    bb.insert(5);
-    std::cout << bb.is_empty() << std::endl;
-    std::cout << bb.get_size() << std::endl;
+    bb.insert(1);
+    bb.insert(2);
+    bb.insert(3);
+    bb.preorder();
 
 
     return 0;
