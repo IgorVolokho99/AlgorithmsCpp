@@ -12,8 +12,13 @@ int main() {
     bb.insert(1);
     bb.insert(2);
     bb.insert(3);
-    bb.inorder();
+    bb.insert(6);
+    bb.postoreder();
 
+
+    //          5
+    //       1      2
+    //     3   6
 
     return 0;
 }

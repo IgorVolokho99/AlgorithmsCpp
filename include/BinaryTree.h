@@ -101,6 +101,18 @@ class BinaryTree {
         inorder_impl(node->right);
     }
 
+    void postoreder() {
+        postoreder_impl(head);
+    }
+
+    void postoreder_impl(BinNode<T>* node) {
+        if (node == nullptr) return;
+
+        postoreder_impl(node->left);
+        postoreder_impl(node->right);
+        std::cout << node->value << std::endl;
+    }
+
     ~BinaryTree() {
         clear();
     }
