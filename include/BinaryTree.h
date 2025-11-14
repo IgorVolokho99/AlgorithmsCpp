@@ -1,6 +1,8 @@
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
 
+#include <vector>
+
 template <typename T>
 class BinNode {
 public:
@@ -39,6 +41,40 @@ class BinaryTree {
 
     BinNode<T>* root () {
         return head;
+    }
+
+    void insert(T value) {
+        if (is_empty()) {
+            head = new BinNode<T>(value);
+            ++size;
+            return;
+        }
+
+        std::vector<BinNode<T>*> queue = {head};
+
+        for (size_t i = 0; i < queue.size(); ++i) {
+            BinNode<T>* node = queue[i];
+
+            if (node->left == nullptr) {
+                node->left = new BinNode<T>(value);
+
+                if (node->left == nullptr) {
+                    node->left = new BinNode<T>(value);
+                    ++size;
+                    return;
+                } else {
+                    queue.push_back(node->left);
+                }
+
+                if (node->right == nullptr) {
+                    node->right = new BinNode<T>(value);
+                    ++size;
+                    return;
+                } else {
+                    queue.push_back(node->right);
+                }
+            }
+        }
     }
 
 private:
