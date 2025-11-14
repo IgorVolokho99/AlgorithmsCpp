@@ -2,6 +2,7 @@
 #define BINARY_TREE_H
 
 #include <vector>
+#include <queue>
 
 template <typename T>
 class BinNode {
@@ -112,6 +113,30 @@ class BinaryTree {
         postoreder_impl(node->right);
         std::cout << node->value << std::endl;
     }
+
+    void level_order() {
+        level_oreder_impl();
+    }
+
+    void level_oreder_impl() {
+        if (head == nullptr) return;
+        
+        std::queue<BinNode<T>*> q;
+        q.push(head);
+
+        while (!q.empty()) {
+            BinNode<T>* node = q.front();
+            q.pop();
+
+            std::cout << node->value << std::endl;
+            if (node->left)
+                q.push(node->left);
+
+            if (node->right)
+                q.push(node->right);
+        }
+    }
+    
 
     ~BinaryTree() {
         clear();

@@ -13,7 +13,7 @@ int main() {
     bb.insert(2);
     bb.insert(3);
     bb.insert(6);
-    bb.postoreder();
+    bb.level_order();
 
 
     //          5
